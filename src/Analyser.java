@@ -13,7 +13,7 @@ public class Analyser {
 	public static void main(String[] args) {
 		try {	
 			
-			OutputFileHandler outputFileHandler = new OutputFileHandler();
+			OutputHandler outputHandler = new OutputHandler();
 			LineDataObject lineDataObject = new LineDataObject();
 			
 			FileReader fileReader = new FileReader(INPUTFILEPATH);
@@ -26,19 +26,25 @@ public class Analyser {
 			
 			String line = null;
 			
+			long startTime = System.currentTimeMillis();
+			
 			while((line=bufferedReader.readLine())!=null){
-				outputFileHandler.setInputLine(line);
-				lineDataObject = outputFileHandler.processLine();
-				outputFileHandler.storeWordsInOutputFile(bufferedWriter1, lineDataObject.lineMap);
-				outputFileHandler.storeMedianInOutputFile(bufferedWriter2, lineDataObject.uniqueWords);
+				outputHandler.setInputLine(line);
+				lineDataObject = outputHandler.processLine();
+				outputHandler.storeWordsInOutputFile(bufferedWriter1, lineDataObject.lineMap);
+				outputHandler.storeMedianInOutputFile(bufferedWriter2, lineDataObject.uniqueWords);
 			}
-			for(Entry<String, Integer> entry: outputFileHandler.mainTreeMap.entrySet()){
-				bufferedWriter1.write(entry.getKey() + "\t" + entry.getValue() + "\n");
-			}
+			
+			outputHandler.writeWordsOutput(bufferedWriter1);
 			
 			bufferedReader.close();
 			bufferedWriter1.close();
 			bufferedWriter2.close();
+			
+			long endTime = System.currentTimeMillis();
+			System.out.println("Feature 1 executed. Check ft1.txt file");
+			System.out.println("Feature 2 executed. Check ft2.txt file");
+			System.out.println("Total time taken by the program: " + (endTime-startTime) + "ms");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
