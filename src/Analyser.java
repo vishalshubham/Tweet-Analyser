@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 
 public class Analyser {
 
+	//Input and output file paths
 	private final static String INPUTFILEPATH = "tweet_input/tweets.txt";
 	private final static String OUTPUTFILEPATH1 = "tweet_output/ft1.txt";
 	private final static String OUTPUTFILEPATH2 = "tweet_output/ft2.txt";
@@ -28,6 +29,7 @@ public class Analyser {
 			
 			long startTime = System.currentTimeMillis();
 			
+			// Read line by line each tweet and process it.
 			while((line=bufferedReader.readLine())!=null){
 				outputHandler.setInputLine(line);
 				lineDataObject = outputHandler.processLine();
@@ -35,6 +37,8 @@ public class Analyser {
 				outputHandler.storeMedianInOutputFile(bufferedWriter2, lineDataObject.uniqueWords);
 			}
 			
+			// Write the final version of feature 1 in the output file 1. 
+			// Feature 2 is written to the output file regularly with processing of each tweet.
 			outputHandler.writeWordsOutput(bufferedWriter1);
 			
 			bufferedReader.close();
@@ -42,8 +46,11 @@ public class Analyser {
 			bufferedWriter2.close();
 			
 			long endTime = System.currentTimeMillis();
+			
 			System.out.println("Feature 1 executed. Check ft1.txt file");
 			System.out.println("Feature 2 executed. Check ft2.txt file");
+			
+			// Time taken to process the whole input file
 			System.out.println("Total time taken by the program: " + (endTime-startTime) + "ms");
 		} catch (Exception e) {
 			e.printStackTrace();
