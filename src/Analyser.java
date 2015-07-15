@@ -37,8 +37,8 @@ public class Analyser {
 				outputHandler.storeMedianInOutputFile(bufferedWriter2, lineDataObject.uniqueWords);
 			}
 			
-			// Write the final version of feature 1 in the output file 1. 
-			// Feature 2 is written to the output file regularly with processing of each tweet.
+			/* Write the final version of feature 1 in the output file 1. 
+			 * Feature 2 is written to the output file regularly with processing of each tweet.*/
 			outputHandler.writeWordsOutput(bufferedWriter1);
 			
 			bufferedReader.close();
