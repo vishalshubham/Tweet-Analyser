@@ -1,3 +1,8 @@
+Libraries required: 
+- java.util
+- java.io
+
+
 Insight Data Engineering - Coding Challenge
 ===========================================================
 
