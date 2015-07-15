@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 public class Analyser {
 
-	//Input and output file paths
+	//Input and output file paths 
 	private final static String INPUTFILEPATH = "tweet_input/tweets.txt";
 	private final static String OUTPUTFILEPATH1 = "tweet_output/ft1.txt";
 	private final static String OUTPUTFILEPATH2 = "tweet_output/ft2.txt";
@@ -47,11 +47,11 @@ public class Analyser {
 			
 			long endTime = System.currentTimeMillis();
 			
-			System.out.println("Feature 1 executed. Check ft1.txt file");
-			System.out.println("Feature 2 executed. Check ft2.txt file");
+			System.out.println("Feature 1 executed. Check ft1.txt file.");
+			System.out.println("Feature 2 executed. Check ft2.txt file.");
 			
 			// Time taken to process the whole input file
-			System.out.println("Total time taken by the program: " + (endTime-startTime) + "ms");
+			System.out.println("Total time taken by the program: " + (endTime-startTime) + "ms.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-// This is the main class that processes tweets and writes the output to output files.
+// This is the main class that processes tweets and writes the output to output files. 
 public class OutputHandler {
 	
 	/* This map collects all the unique words in the tweets. And it ranges upto 2^30 which can easily 
@@ -45,6 +45,7 @@ public class OutputHandler {
 		}
 		lineDataObject.lineMap = treeMap;
 		lineDataObject.uniqueWords = treeMap.size();
+		
 		return lineDataObject;
 	}
 	
